@@ -1,0 +1,25 @@
+{
+  "author": {
+    "name": "Renan Veroneze"
+  },
+  "name": "grunt-biaphp",
+  "version": "0.0.1",
+  "keywords": [
+    "grunt",
+    "gruntplugin",
+    "bia",
+    "biaphp",
+    "php",
+    "preprocessor"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/renanveroneze/grunt-biaphp"
+  },
+  "readme": "",
+  "dependencies": {},
+  "bugs": {
+    "url": "https://github.com/renanveroneze/grunt-biaphp/issues"
+  },
+  "homepage": "https://github.com/renanveroneze/grunt-biaphp"
+}
