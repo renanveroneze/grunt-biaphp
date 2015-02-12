@@ -18,12 +18,10 @@
 
 module.exports = ( grunt ) ->
 
+    fs = require 'fs'
+    path = require 'path'
+
     grunt.registerMultiTask 'biaphp', ->
-
-        #done = @async()
-
-        fs = require 'fs'
-        path = require 'path'
 
         current = path.dirname __filename
         base = path.join current, '../../../'
@@ -31,18 +29,40 @@ module.exports = ( grunt ) ->
         src = path.join base, this.data.cwd
         bin = path.join base, this.data.dest
 
-        files = fs.readdirSync src
+        files = readdirSyncRecursive src
 
         for file in files
 
-            final = path.basename( file, '.bia') + '.php'
+            final = bin + file.replace(src, '').replace '.bia', '.php'
+
+            if !fs.existsSync path.dirname final
+
+                grunt.util.spawn
+                    cmd: 'mkdir'
+                    args: ['-p', path.dirname final]
+
 
             grunt.util.spawn
                 cmd: 'php'
-                args: ['-f', "#{current}/cmdbia.php", "#{src}/#{file}", "#{bin}/#{final}"]
+                args: ['-f', "#{current}/cmdbia.php", file, final]
 
-                ->
 
-        #done()
+
+
+
+    readdirSyncRecursive = ( dir ) ->
+
+        files = fs.readdirSync dir
+        results = []
+
+        for file in files
+
+            if fs.statSync("#{dir}/#{file}").isDirectory()
+
+                results = results.concat readdirSyncRecursive "#{dir}/#{file}"
+
+            else results.push "#{dir}/#{file}"
+
+        return results
 
 
