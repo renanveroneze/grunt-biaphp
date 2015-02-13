@@ -20,6 +20,7 @@ module.exports = ( grunt ) ->
 
     fs = require 'fs'
     path = require 'path'
+    biaphp = require 'biaphp'
 
     grunt.registerMultiTask 'biaphp', ->
 
@@ -41,10 +42,8 @@ module.exports = ( grunt ) ->
                     cmd: 'mkdir'
                     args: ['-p', path.dirname final]
 
+            biaphp file, final
 
-            grunt.util.spawn
-                cmd: 'php'
-                args: ['-f', "#{current}/cmdbia.php", file, final]
 
 
 

@@ -3,7 +3,7 @@
     "name": "Renan Veroneze"
   },
   "name": "grunt-biaphp",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "keywords": [
     "grunt",
     "gruntplugin",
@@ -17,7 +17,9 @@
     "url": "git://github.com/renanveroneze/grunt-biaphp"
   },
   "readme": "",
-  "dependencies": {},
+  "dependencies": {
+      "biaphp": "~0.0.1"
+  },
   "bugs": {
     "url": "https://github.com/renanveroneze/grunt-biaphp/issues"
   },
