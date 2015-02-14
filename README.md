@@ -18,24 +18,22 @@ In Gruntfile:
 
 
 ```
-
 grunt.initConfig({
 
-	biaphp: {
-		
-		compile: {
-			cwd: '../path/to/bia'
-			dest: '../path/to/php'
-						
-		}		
-	
-	}
+    biaphp: {
+
+        compile: {
+            cwd: '../path/to/bia'
+            dest: '../path/to/php'
+
+        }
+
+    }
 
 });
 
 
 grunt.loadNpmTasks('grunt-biaphp');
-
 
 ```
 
