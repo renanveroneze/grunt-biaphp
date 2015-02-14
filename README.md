@@ -17,7 +17,7 @@ npm install grunt-biaphp --save-dev
 In Gruntfile:
 
 
-```
+```js
 grunt.initConfig({
 
     biaphp: {
